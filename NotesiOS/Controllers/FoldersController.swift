@@ -8,6 +8,23 @@
 
 import UIKit
 
+let firstFolderNotes = [
+    Note(title: "UITableViews", date: Date(), text: "Table views use protocols to receive data."),
+    Note(title: "CollectionViews", date: Date(), text: "Collection views can be customized to crreate flow layouts pinterest"),
+    Note(title: "Flow Layouts", date: Date(), text: "Custom layouts can be made with bla bla bla")
+]
+
+let secondFolderNotes = [
+    Note(title: "UITableViews", date: Date(), text: "I have 2 insta"),
+    Note(title: "CollectionViews", date: Date(), text: "Youtube Channels"),
+    Note(title: "Flow Layouts", date: Date(), text: "I have have Facebook. Bla. bla bla...")
+]
+
+var noteFolders: [NoteFolder] = [
+    NoteFolder(title: "Course Notew", notes: firstFolderNotes),
+    NoteFolder(title: "Social Media", notes: secondFolderNotes)
+]
+
 extension FoldersController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
