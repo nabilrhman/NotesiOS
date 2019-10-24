@@ -28,11 +28,13 @@ var noteFolders: [NoteFolder] = [
 extension FoldersController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return noteFolders.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! FolderCell
+        let folderForRow = noteFolders[indexPath.row]
+        cell.folderData = folderForRow
         return cell
     }
     
@@ -42,7 +44,10 @@ extension FoldersController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let folderNotesController = FolderNotesController();
+        let folderForRowSelected = noteFolders[indexPath.row]
+        folderNotesController.folderData = folderForRowSelected
         navigationController?.pushViewController(folderNotesController, animated: true)
+        
     }
     
 }

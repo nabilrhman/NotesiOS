@@ -10,6 +10,12 @@ import UIKit
 
 class NoteCell: UITableViewCell {
     
+    var noteData: Note! {
+        didSet {
+            noteLabel.text = noteData.title
+        }
+    }
+    
     fileprivate var noteLabel: UILabel = {
         let label = UILabel()
         label.text = "Places to take photos"

@@ -10,6 +10,14 @@ import UIKit
 
 class FolderNotesController: UITableViewController {
     
+    var folderData: NoteFolder! {
+          didSet {
+            self.notes = folderData.notes
+          }
+    }
+    
+    fileprivate var notes = [Note]()
+    
     fileprivate let CELL_ID: String = "CELL_ID"
     
     override func viewDidLoad() {
@@ -44,11 +52,13 @@ class FolderNotesController: UITableViewController {
 extension FolderNotesController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return self.notes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! NoteCell
+        let noteForRow = self.notes[indexPath.row]
+        cell.noteData = noteForRow
         return cell
     }
     
