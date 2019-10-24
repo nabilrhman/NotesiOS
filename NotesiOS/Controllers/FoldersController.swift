@@ -11,7 +11,7 @@ import UIKit
 extension FoldersController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 20
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,11 +61,31 @@ class FoldersController: UITableViewController {
         ]
         
         self.toolbarItems = items
+        setupTranslucentViews()
     }
     
     fileprivate func setupTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
         tableView.tableHeaderView = headerView
+    }
+    
+    fileprivate func getImage(withColor color: UIColor, andSize size: CGSize) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        return image
+    }
+    
+    fileprivate func setupTranslucentViews() {
+        let toolBar = self.navigationController?.toolbar
+        let navigationBar = self.navigationController?.navigationBar
+        let slightWhite = getImage(withColor: UIColor.white.withAlphaComponent(0.9), andSize: CGSize(width: 30, height: 30))
+        toolBar?.setBackgroundImage(slightWhite, forToolbarPosition: .any, barMetrics: .default)
+        toolBar?.setShadowImage(UIImage(), forToolbarPosition: .any)
+        navigationBar?.setBackgroundImage(slightWhite, for: .default)
+        navigationBar?.shadowImage = slightWhite
     }
 
 
