@@ -12,7 +12,11 @@ class NoteCell: UITableViewCell {
     
     var noteData: Note! {
         didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM dd, YYYY"
             noteLabel.text = noteData.title
+            dateLabel.text = dateFormatter.string(from: noteData.date)
+            previewLabel.text = noteData.text
         }
     }
     
