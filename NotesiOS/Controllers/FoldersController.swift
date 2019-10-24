@@ -45,9 +45,7 @@ class FoldersController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
-        navigationItem.title = "Folders"
-        
+        navigationItem.title = "Notebooks"
         setupTableView()
     }
     
@@ -63,8 +61,8 @@ class FoldersController: UITableViewController {
         self.toolbarItems = items
         let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)
         self.navigationItem.setRightBarButton(editButton, animated: false)
-        self.navigationController?.toolbar.tintColor = .cyan
-        self.navigationController?.navigationBar.tintColor = .cyan
+        self.navigationController?.toolbar.tintColor = .primaryColor
+        self.navigationController?.navigationBar.tintColor = .primaryColor
         
         setupTranslucentViews()
     }
