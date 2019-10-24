@@ -37,7 +37,7 @@ class FolderNotesController: UITableViewController {
     }
     
     fileprivate func setupTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
+        tableView.register(NoteCell.self, forCellReuseIdentifier: CELL_ID)
     }
 }
 
@@ -48,8 +48,7 @@ extension FolderNotesController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
-        cell.textLabel?.text = "The first note! yay!"
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! NoteCell
         return cell
     }
     
@@ -57,6 +56,10 @@ extension FolderNotesController {
         let noteDetailController = NoteDetailController()
         navigationController?.pushViewController(noteDetailController, animated: true)
        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
 }
