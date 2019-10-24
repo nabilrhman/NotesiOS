@@ -53,11 +53,14 @@ class FoldersController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setToolbarHidden(false, animated: false)
-    }
+        self.navigationController?.setToolbarHidden(false, animated: true)
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.setToolbarHidden(true, animated: false)
+        let items:[UIBarButtonItem] = [
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: "New folder", style: .done, target: self, action: nil)
+        ]
+        
+        self.toolbarItems = items
     }
     
     fileprivate func setupTableView() {
