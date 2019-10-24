@@ -107,13 +107,13 @@ class FoldersController: UITableViewController {
     }
     
     fileprivate func setupTranslucentViews() {
-        let toolBar = self.navigationController?.toolbar
-        let navigationBar = self.navigationController?.navigationBar
-        let slightWhite = getImage(withColor: UIColor.white.withAlphaComponent(0.9), andSize: CGSize(width: 30, height: 30))
-        toolBar?.setBackgroundImage(slightWhite, forToolbarPosition: .any, barMetrics: .default)
-        toolBar?.setShadowImage(UIImage(), forToolbarPosition: .any)
-        navigationBar?.setBackgroundImage(slightWhite, for: .default)
-        navigationBar?.shadowImage = slightWhite
+//        let toolBar = self.navigationController?.toolbar
+//        let navigationBar = self.navigationController?.navigationBar
+//        let slightWhite = getImage(withColor: UIColor.white.withAlphaComponent(0.9), andSize: CGSize(width: 30, height: 30))
+//        toolBar?.setBackgroundImage(slightWhite, forToolbarPosition: .any, barMetrics: .default)
+//        toolBar?.setShadowImage(UIImage(), forToolbarPosition: .any)
+//        navigationBar?.setBackgroundImage(slightWhite, for: .default)
+//        navigationBar?.shadowImage = slightWhite
     }
 
 
