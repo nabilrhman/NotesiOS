@@ -16,7 +16,7 @@ extension FoldersController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
-        cell.textLabel?.text = "The first note! yay!"
+        cell.textLabel?.text = "The first note folder! yay!"
         return cell
     }
     
