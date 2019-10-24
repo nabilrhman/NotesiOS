@@ -61,6 +61,11 @@ class FoldersController: UITableViewController {
         ]
         
         self.toolbarItems = items
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)
+        self.navigationItem.setRightBarButton(editButton, animated: false)
+        self.navigationController?.toolbar.tintColor = .cyan
+        self.navigationController?.navigationBar.tintColor = .cyan
+        
         setupTranslucentViews()
     }
     
