@@ -58,6 +58,7 @@ class FolderNotesController: UITableViewController {
             UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.createNewNote))
         ]
         self.toolbarItems = items
+        tableView.reloadData()
     }
     
     @objc fileprivate func createNewNote() {
@@ -100,9 +101,11 @@ extension FolderNotesController {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             print("Trying to delete row at indexpath:", indexPath)
             let targetRow = indexPath.row
-            self.notes.remove(at: targetRow)
-            self.filteredNotes.remove(at: targetRow)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if CoreDataManager.shared.deleteNote(note: self.notes[targetRow]) {
+                self.notes.remove(at: targetRow)
+                self.filteredNotes.remove(at: targetRow)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
         actions.append(deleteAction)
         return actions
@@ -121,8 +124,9 @@ extension FolderNotesController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let noteDetailController = NoteDetailController()
+        let noteForRow = self.filteredNotes[indexPath.row]
+        noteDetailController.noteData = noteForRow
         navigationController?.pushViewController(noteDetailController, animated: true)
-       
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

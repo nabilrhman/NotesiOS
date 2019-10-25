@@ -14,6 +14,15 @@ protocol NoteDelegate {
 
 class NoteDetailController: UIViewController {
     
+    var noteData: Note! {
+       didSet {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "MM dd, YYYY"
+           textView.text = noteData.title
+           dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
+       }
+    }
+       
     var delegate: NoteDelegate?
     
     fileprivate var textView: UITextView = {
@@ -44,7 +53,13 @@ class NoteDetailController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        delegate?.saveNewNote(title: textView.text, date: Date(), text: textView.text)
+        if self.noteData == nil {
+             delegate?.saveNewNote(title: textView.text, date: Date(), text: textView.text)
+        } else {
+            // Update out note here.
+            guard let newText = self.textView.text else { return }
+            CoreDataManager.shared.saveUpdatedNote(note: self.noteData, newText: newText)
+        }
     }
     
     fileprivate func setupUI() {
