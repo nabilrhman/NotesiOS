@@ -59,7 +59,7 @@ class FoldersController: UITableViewController {
     fileprivate let headerView: UIView = {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
         let label = UILabel(frame: CGRect(x: 20, y: 15, width: 100, height: 20))
-        label.text = "ICLOUD"
+        label.text = "ALL NOTEBOOKS"
         label.font = UIFont.systemFont(ofSize: 13, weight: .light)
         label.textColor = .darkGray
         headerView.addBorder(toSide: .bottom, withColor: UIColor.lightGray.withAlphaComponent(0.5).cgColor, andThickness: 0.3)
@@ -80,7 +80,7 @@ class FoldersController: UITableViewController {
     
         let items:[UIBarButtonItem] = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "New folder", style: .done, target: self, action: nil)
+            UIBarButtonItem(title: "New folder", style: .done, target: self, action: #selector(self.handleAddNewFolder))
         ]
         
         self.toolbarItems = items
@@ -89,7 +89,31 @@ class FoldersController: UITableViewController {
         self.navigationController?.toolbar.tintColor = .primaryColor
         self.navigationController?.navigationBar.tintColor = .primaryColor
         
-        setupTranslucentViews()
+//        setupTranslucentViews()
+    }
+    
+    var textField: UITextField!
+    
+    @objc fileprivate func handleAddNewFolder() {
+        
+        let addAlert = UIAlertController(title: "New Notebook", message: "Enter a name for this notebook", preferredStyle: .alert)
+        
+        addAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            addAlert.dismiss(animated: true)
+        }))
+        
+        addAlert.addTextField { (tf) in
+            self.textField = tf
+        }
+        
+        addAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
+            guard let title = self.textField.text else { return }
+            let newFolder = NoteFolder(title: title, notes: [])
+            noteFolders.append(newFolder)
+            self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
+        }))
+        
+        present(addAlert, animated: true)
     }
     
     fileprivate func setupTableView() {
