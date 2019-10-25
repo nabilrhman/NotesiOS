@@ -85,6 +85,19 @@ extension FolderNotesController: UISearchBarDelegate {
 
 extension FolderNotesController {
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        var actions = [UITableViewRowAction]()
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            print("Trying to delete row at indexpath:", indexPath)
+            let targetRow = indexPath.row
+            self.notes.remove(at: targetRow)
+            self.filteredNotes.remove(at: targetRow)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        actions.append(deleteAction)
+        return actions
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.filteredNotes.count
     }
