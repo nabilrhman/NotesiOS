@@ -58,4 +58,27 @@ struct CoreDataManager {
             return false
         }
     }
+    
+    // NOTE FUNCTION
+    func createNewNote(title: String, date: Date, text: String, noteFolder: NoteFolder) -> Note {
+        let context = persistentContainer.viewContext
+        let newNote = NSEntityDescription.insertNewObject(forEntityName: "Note", into: context) as! Note
+        newNote.title = title
+        newNote.text = text
+        newNote.date = date
+        newNote.noteFolder = noteFolder
+
+        do {
+            try context.save()
+            return newNote
+        } catch let err{
+            print("Failed to save new note folder.", err)
+            return newNote
+        }
+    }
+    
+    func fetchNotes(from noteFolder: NoteFolder) -> [Note] {
+        guard let folderNotes = noteFolder.notes?.allObjects as? [Note] else { return [] }
+        return folderNotes
+    }
 }
