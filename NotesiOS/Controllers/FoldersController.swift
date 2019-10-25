@@ -104,6 +104,8 @@ class FoldersController: UITableViewController {
         self.navigationController?.toolbar.tintColor = .primaryColor
         self.navigationController?.navigationBar.tintColor = .primaryColor
         
+        self.tableView.reloadData()
+        
 //        setupTranslucentViews()
     }
     
