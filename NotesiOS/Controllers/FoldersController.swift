@@ -110,9 +110,9 @@ class FoldersController: UITableViewController {
         
         addAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
             guard let title = self.textField.text else { return }
-//            let newFolder = NoteFolder(title: title, notes: [])
-//            noteFolders.append(newFolder)
-//            self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
+            let newFolder = CoreDataManager.shared.createNoteFolder(title: title)
+            noteFolders.append(newFolder)
+            self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
         }))
         
         present(addAlert, animated: true)

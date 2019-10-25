@@ -20,6 +20,7 @@
 		9F0582E323625C5800933BA2 /* NoteFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E223625C5800933BA2 /* NoteFolder.swift */; };
 		9F0582E523625C6200933BA2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E423625C6200933BA2 /* Note.swift */; };
 		9F0582E82362B99500933BA2 /* NotesiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E62362B99500933BA2 /* NotesiOS.xcdatamodeld */; };
+		9F0582EA2362BDF800933BA2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E92362BDF700933BA2 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9F0582E223625C5800933BA2 /* NoteFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFolder.swift; sourceTree = "<group>"; };
 		9F0582E423625C6200933BA2 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		9F0582E72362B99500933BA2 /* NotesiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesiOS.xcdatamodel; sourceTree = "<group>"; };
+		9F0582E92362BDF700933BA2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				9F0582CE2361272F00933BA2 /* Info.plist */,
 				9F0582D723614E1E00933BA2 /* extension.swift */,
 				9F0582E62362B99500933BA2 /* NotesiOS.xcdatamodeld */,
+				9F0582E92362BDF700933BA2 /* CoreDataManager.swift */,
 			);
 			path = NotesiOS;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				9F0582C32361272E00933BA2 /* SceneDelegate.swift in Sources */,
 				9F0582D823614E1E00933BA2 /* extension.swift in Sources */,
 				9F0582E82362B99500933BA2 /* NotesiOS.xcdatamodeld in Sources */,
+				9F0582EA2362BDF800933BA2 /* CoreDataManager.swift in Sources */,
 				9F0582E523625C6200933BA2 /* Note.swift in Sources */,
 				9F0582DA2362132200933BA2 /* NoteDetailController.swift in Sources */,
 				9F0582D623613E9500933BA2 /* FolderNotesController.swift in Sources */,
