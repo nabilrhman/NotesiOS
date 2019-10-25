@@ -99,10 +99,10 @@ class FoldersController: UITableViewController {
         ]
         
         self.toolbarItems = items
-        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)
-        self.navigationItem.setRightBarButton(editButton, animated: false)
-        self.navigationController?.toolbar.tintColor = .primaryColor
-        self.navigationController?.navigationBar.tintColor = .primaryColor
+//        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)
+//        self.navigationItem.setRightBarButton(editButton, animated: false)
+//        self.navigationController?.toolbar.tintColor = .primaryColor
+//        self.navigationController?.navigationBar.tintColor = .primaryColor
         
         self.tableView.reloadData()
         
@@ -148,13 +148,13 @@ class FoldersController: UITableViewController {
     }
     
     fileprivate func setupTranslucentViews() {
-//        let toolBar = self.navigationController?.toolbar
-//        let navigationBar = self.navigationController?.navigationBar
-//        let slightWhite = getImage(withColor: UIColor.white.withAlphaComponent(0.9), andSize: CGSize(width: 30, height: 30))
-//        toolBar?.setBackgroundImage(slightWhite, forToolbarPosition: .any, barMetrics: .default)
-//        toolBar?.setShadowImage(UIImage(), forToolbarPosition: .any)
-//        navigationBar?.setBackgroundImage(slightWhite, for: .default)
-//        navigationBar?.shadowImage = slightWhite
+        let toolBar = self.navigationController?.toolbar
+        let navigationBar = self.navigationController?.navigationBar
+        let slightWhite = getImage(withColor: UIColor.white.withAlphaComponent(0.9), andSize: CGSize(width: 30, height: 30))
+        toolBar?.setBackgroundImage(slightWhite, forToolbarPosition: .any, barMetrics: .default)
+        toolBar?.setShadowImage(UIImage(), forToolbarPosition: .any)
+        navigationBar?.setBackgroundImage(slightWhite, for: .default)
+        navigationBar?.shadowImage = slightWhite
     }
 
 

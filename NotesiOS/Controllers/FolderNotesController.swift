@@ -51,11 +51,9 @@ class FolderNotesController: UITableViewController {
         super.viewWillAppear(animated)
         
         let items: [UIBarButtonItem] = [
-            UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil),
+            UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.createNewNote)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "\(notes.count) Notes", style: .done, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(self.createNewNote))
+            UIBarButtonItem(title: "\(notes.count) Notes", style: .done, target: nil, action: nil)
         ]
         self.toolbarItems = items
         tableView.reloadData()
