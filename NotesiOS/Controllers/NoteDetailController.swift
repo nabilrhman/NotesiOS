@@ -14,10 +14,15 @@ protocol NoteDelegate {
 
 class NoteDetailController: UIViewController {
     
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy 'at' h:mm a"
+        return dateFormatter
+    }()
+    
     var noteData: Note! {
        didSet {
-           let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "MM dd, YYYY"
+           
            textView.text = noteData.title
            dateLabel.text = dateFormatter.string(from: noteData.date ?? Date())
        }
@@ -28,18 +33,18 @@ class NoteDetailController: UIViewController {
     fileprivate var textView: UITextView = {
         let tf = UITextView()
         tf.translatesAutoresizingMaskIntoConstraints = false;
-        tf.text = "Notes go in here"
+        tf.text = "Write your notes here ..."
         tf.isEditable = true
         tf.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         return tf
     }()
     
-    fileprivate var dateLabel: UILabel = {
+    fileprivate lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = .gray
-        label.text = "March 13 2019 at 4:35 PM"
+        label.text = dateFormatter.string(from: Date())
         label.textAlignment = .center
         return label
     }()
