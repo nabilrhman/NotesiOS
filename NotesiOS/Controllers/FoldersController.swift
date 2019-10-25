@@ -7,23 +7,25 @@
 //
 
 import UIKit
+//
+//let firstFolderNotes = [
+//    Note(title: "UITableViews", date: Date(), text: "Table views use protocols to receive data."),
+//    Note(title: "CollectionViews", date: Date(), text: "Collection views can be customized to crreate flow layouts pinterest"),
+//    Note(title: "Flow Layouts", date: Date(), text: "Custom layouts can be made with bla bla bla")
+//]
+//
+//let secondFolderNotes = [
+//    Note(title: "UITableViews", date: Date(), text: "I have 2 insta"),
+//    Note(title: "CollectionViews", date: Date(), text: "Youtube Channels"),
+//    Note(title: "Flow Layouts", date: Date(), text: "I have have Facebook. Bla. bla bla...")
+//]
+//
+//var noteFolders: [NoteFolder] = [
+//    NoteFolder(title: "Course Notew", notes: firstFolderNotes),
+//    NoteFolder(title: "Social Media", notes: secondFolderNotes)
+//]
 
-let firstFolderNotes = [
-    Note(title: "UITableViews", date: Date(), text: "Table views use protocols to receive data."),
-    Note(title: "CollectionViews", date: Date(), text: "Collection views can be customized to crreate flow layouts pinterest"),
-    Note(title: "Flow Layouts", date: Date(), text: "Custom layouts can be made with bla bla bla")
-]
-
-let secondFolderNotes = [
-    Note(title: "UITableViews", date: Date(), text: "I have 2 insta"),
-    Note(title: "CollectionViews", date: Date(), text: "Youtube Channels"),
-    Note(title: "Flow Layouts", date: Date(), text: "I have have Facebook. Bla. bla bla...")
-]
-
-var noteFolders: [NoteFolder] = [
-    NoteFolder(title: "Course Notew", notes: firstFolderNotes),
-    NoteFolder(title: "Social Media", notes: secondFolderNotes)
-]
+var noteFolders = [NoteFolder]()
 
 extension FoldersController {
     
@@ -58,7 +60,7 @@ class FoldersController: UITableViewController {
     
     fileprivate let headerView: UIView = {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
-        let label = UILabel(frame: CGRect(x: 20, y: 15, width: 100, height: 20))
+        let label = UILabel(frame: CGRect(x: 20, y: 15, width: 200, height: 20))
         label.text = "ALL NOTEBOOKS"
         label.font = UIFont.systemFont(ofSize: 13, weight: .light)
         label.textColor = .darkGray
@@ -108,9 +110,9 @@ class FoldersController: UITableViewController {
         
         addAlert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (_) in
             guard let title = self.textField.text else { return }
-            let newFolder = NoteFolder(title: title, notes: [])
-            noteFolders.append(newFolder)
-            self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
+//            let newFolder = NoteFolder(title: title, notes: [])
+//            noteFolders.append(newFolder)
+//            self.tableView.insertRows(at: [IndexPath(row: noteFolders.count - 1, section: 0)], with: .fade)
         }))
         
         present(addAlert, animated: true)

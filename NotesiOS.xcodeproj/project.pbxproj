@@ -19,6 +19,7 @@
 		9F0582DF236256A400933BA2 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582DE236256A400933BA2 /* NoteCell.swift */; };
 		9F0582E323625C5800933BA2 /* NoteFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E223625C5800933BA2 /* NoteFolder.swift */; };
 		9F0582E523625C6200933BA2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E423625C6200933BA2 /* Note.swift */; };
+		9F0582E82362B99500933BA2 /* NotesiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9F0582E62362B99500933BA2 /* NotesiOS.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9F0582DE236256A400933BA2 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		9F0582E223625C5800933BA2 /* NoteFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFolder.swift; sourceTree = "<group>"; };
 		9F0582E423625C6200933BA2 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9F0582E72362B99500933BA2 /* NotesiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesiOS.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				9F0582CB2361272F00933BA2 /* LaunchScreen.storyboard */,
 				9F0582CE2361272F00933BA2 /* Info.plist */,
 				9F0582D723614E1E00933BA2 /* extension.swift */,
+				9F0582E62362B99500933BA2 /* NotesiOS.xcdatamodeld */,
 			);
 			path = NotesiOS;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				9F0582C12361272E00933BA2 /* AppDelegate.swift in Sources */,
 				9F0582C32361272E00933BA2 /* SceneDelegate.swift in Sources */,
 				9F0582D823614E1E00933BA2 /* extension.swift in Sources */,
+				9F0582E82362B99500933BA2 /* NotesiOS.xcdatamodeld in Sources */,
 				9F0582E523625C6200933BA2 /* Note.swift in Sources */,
 				9F0582DA2362132200933BA2 /* NoteDetailController.swift in Sources */,
 				9F0582D623613E9500933BA2 /* FolderNotesController.swift in Sources */,
@@ -376,6 +380,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9F0582E62362B99500933BA2 /* NotesiOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9F0582E72362B99500933BA2 /* NotesiOS.xcdatamodel */,
+			);
+			currentVersion = 9F0582E72362B99500933BA2 /* NotesiOS.xcdatamodel */;
+			path = NotesiOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9F0582B52361272E00933BA2 /* Project object */;
 }
