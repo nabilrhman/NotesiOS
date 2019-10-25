@@ -35,5 +35,27 @@ struct CoreDataManager {
         }
     }
     
-    // 2. fetchNoteFolders
+    func fetchNoteFolders() -> [NoteFolder] {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NoteFolder>(entityName: "NoteFolder")
+        do {
+            let noteFolders = try context.fetch(fetchRequest)
+            return noteFolders
+        } catch let err {
+            print("Failed to fetch more folders: ", err)
+            return []
+        }
+    }
+    
+    func deleteNoteFolder(noteFolder: NoteFolder) -> Bool {
+        let context = persistentContainer.viewContext
+        context.delete(noteFolder)
+        do {
+            try context.save()
+            return true
+        } catch let err {
+            print("Error deleting note folder entity instance", err)
+            return false
+        }
+    }
 }

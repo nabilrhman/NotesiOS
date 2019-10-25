@@ -29,6 +29,18 @@ var noteFolders = [NoteFolder]()
 
 extension FoldersController {
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete")
+        { (rowAction, indexPath) in
+            let noteFolder = noteFolders[indexPath.row]
+            if CoreDataManager.shared.deleteNoteFolder(noteFolder: noteFolder) {
+                noteFolders.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+        return [deleteAction]
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return noteFolders.count
     }
@@ -73,6 +85,7 @@ class FoldersController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         navigationItem.title = "Notebooks"
+        noteFolders = CoreDataManager.shared.fetchNoteFolders()
         setupTableView()
     }
     
