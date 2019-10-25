@@ -103,6 +103,5 @@ class NoteDetailController: UIViewController {
 //            UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
         ]
         self.navigationItem.setRightBarButtonItems(topItems, animated: false)
-        self.navigationController?.setToolbarHidden(true, animated: true)
     }
 }
