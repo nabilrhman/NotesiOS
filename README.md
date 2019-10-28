@@ -5,7 +5,7 @@ For assgnment 1, I submitted the assignment and shared the repo on time. However
 
 [GitHub Link](https://github.com/nabilrhman/rahman-iOS)
 
-<Assignment Title>  - <Branch name>
+<Assignment Title>    | <Branch name>
 - Assignment 2        - assignment2
 - Assignment 3        - assignment3
 - Assignment 4        - assignment4
